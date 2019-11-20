@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject uiIdle;
     public GameObject uiScore;
     public Text pointsText;
-
+    public Text recordText;
 
     public GameState gameState = GameState.Idle;
 
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        recordText.text = "BEST: " + GetMaxScore().ToString();
     }
 
     // Update is called once per frame
@@ -89,5 +89,18 @@ public class GameController : MonoBehaviour
     public void IncreasePoints()
     {
         pointsText.text = (++points).ToString();
+        if (points >= GetMaxScore())
+        {
+            recordText.text = "BEST: " + points.ToString();
+            SaveScore(points);
+        }
+    }
+    public int GetMaxScore()
+    {
+        return PlayerPrefs.GetInt("Max Points", 0);
+    }
+    public void SaveScore(int currentPoints)
+    {
+        PlayerPrefs.SetInt("Max Points", currentPoints);
     }
 }
