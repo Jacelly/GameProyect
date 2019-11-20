@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
             game.SendMessage("ResetTimeScale",0.5f);
             DustStop();
         }
+        else if (other.gameObject.tag == "Point")
+        {
+            game.SendMessage("IncreasePoints");
+        }
 
     }
 
