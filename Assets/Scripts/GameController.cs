@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum GameState { Idle, Playing, Ended };
 public class GameController : MonoBehaviour
 {
     [Range(0f,0.20f)]
@@ -10,8 +12,8 @@ public class GameController : MonoBehaviour
     public RawImage platfrom;
     public GameObject uiIdle;
 
-    public enum GameState { Idle, Playing};
-    public GameState gamestate = GameState.Idle;
+
+    public GameState gameState = GameState.Idle;
 
     public GameObject player;
     public GameObject enemyGenerator;
@@ -26,20 +28,26 @@ public class GameController : MonoBehaviour
     void Update()
     {
         //start the game
-        if(gamestate== GameState.Idle && (Input.GetKeyDown("up") || Input.GetMouseButtonDown(0)))
+        if(gameState== GameState.Idle && (Input.GetKeyDown("up") || Input.GetMouseButtonDown(0)))
         {
-            gamestate = GameState.Playing;
+            gameState = GameState.Playing;
             uiIdle.SetActive(false);
             player.SendMessage("UpdateState","PlayerRun");
             enemyGenerator.SendMessage("StartGenerator");
         }
         //game going
-        else if (gamestate == GameState.Playing)
+        else if (gameState == GameState.Playing)
         {
             Parallax();
 
         }
-       
+        //game ended
+        else if (gameState == GameState.Ended)
+        {
+            //TODO
+
+        }
+
 
     }
     void Parallax()
