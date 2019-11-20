@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public enum GameState { Idle, Playing, Ended };
+public enum GameState { Idle, Playing, Ended,Ready };
 public class GameController : MonoBehaviour
 {
     [Range(0f,0.20f)]
@@ -27,8 +28,9 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool userAction = Input.GetKeyDown("up") || Input.GetMouseButtonDown(0);
         //start the game
-        if(gameState== GameState.Idle && (Input.GetKeyDown("up") || Input.GetMouseButtonDown(0)))
+        if (gameState== GameState.Idle && userAction)
         {
             gameState = GameState.Playing;
             uiIdle.SetActive(false);
@@ -41,14 +43,15 @@ public class GameController : MonoBehaviour
             Parallax();
 
         }
-        //game ended
-        else if (gameState == GameState.Ended)
+        //game ready to restart
+        else if (gameState == GameState.Ready)
         {
-            //TODO
+            if(userAction)
+            {
+                RestarGame();
+            }
 
         }
-
-
     }
     void Parallax()
     {
@@ -56,5 +59,9 @@ public class GameController : MonoBehaviour
         backgroud.uvRect = new Rect(backgroud.uvRect.x + finalSpeed, 0f, 1f, 1f);
         platfrom.uvRect = new Rect(platfrom.uvRect.x + finalSpeed * 4, 0f, 1f, 1f);
 
+    }
+    public void RestarGame()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
