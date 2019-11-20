@@ -1,0 +1,17 @@
+****************________________MY TO-DO LIST________________****************
+1) Diseñando el juego,y preparando el escenario para el efecto parallax.
+2) Efecto Parallax de fondo,para conseguir un doble efecto de movimiento en el fondo.
+3) Portada animada e inicio,es decir iniciar el juego al presionar una tecla o botón.
+4) Creando al protagonista.Tener listo nuestro personaje para añadir animaciones.
+5) Animación de correr.es decir,que el personaje esté quieto y al iniciar el juego corra.
+6) Animación de saltar.es decir,que el personaje pueda saltar.
+7) Creando al enemigo.Crear un enemigo animado que se mueva a la izquierda.
+8) Autodestruir enemigos.Añadir un objeto que destruya enemigos con la finalidad de liberar la memoria de los enemigos fuera de la escena.
+9) Generador de enemigos.es decir,crear un objeto que genere un enemigo cada X tiempo.
+10) Animación de muerte.es decir,que el personaje muera al chocar contra un enemigo.
+11) Reinicio de juego.Permitir al jugador reiniciar el juego después de morir.
+13) Dificultad progresiva.es decir,aumentar la dificultad del juego progresivamente.
+14) Partículas al correr. es decir,generar un efecto de levantar tierra al correr.
+15) Marcador de puntos. Mostrar marcador e incrementarlo al saltar enemigos.
+16) Guardar récord con PlayerPrefs. Mostrar el récord y guardarlo en un fichero.
+
