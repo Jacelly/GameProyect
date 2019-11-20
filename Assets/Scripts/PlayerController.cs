@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject game;
     public GameObject enemyGenerator;
+    public ParticleSystem dust;
+
     private Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
             UpdateState("PlayerDie");
             game.GetComponent<GameController>().gameState = GameState.Ended;
             enemyGenerator.SendMessage("CancelGenerator",true);
+            game.SendMessage("ResetTimeScale",0.5f);
+            DustStop();
         }
 
     }
@@ -43,5 +47,13 @@ public class PlayerController : MonoBehaviour
     void GameReady()
     {
         game.GetComponent<GameController>().gameState = GameState.Ready;
+    }
+    void DustPlay()
+    {
+        dust.Play();
+    }
+    void DustStop()
+    {
+        dust.Stop();
     }
 }

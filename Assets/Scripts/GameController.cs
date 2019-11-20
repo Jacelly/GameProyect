@@ -19,6 +19,9 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject enemyGenerator;
 
+    public float scaleTime = 6f;
+    public float scaleInc = .25f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +38,9 @@ public class GameController : MonoBehaviour
             gameState = GameState.Playing;
             uiIdle.SetActive(false);
             player.SendMessage("UpdateState","PlayerRun");
+            player.SendMessage("DustPlay");
             enemyGenerator.SendMessage("StartGenerator");
+            InvokeRepeating("GameTimeScale", scaleTime, scaleTime);
         }
         //game going
         else if (gameState == GameState.Playing)
@@ -62,6 +67,18 @@ public class GameController : MonoBehaviour
     }
     public void RestarGame()
     {
+        ResetTimeScale();
         SceneManager.LoadScene("SampleScene");
+    }
+    void GameTimeScale()
+    {
+        Time.timeScale += scaleInc;
+        Debug.Log("Ritmo incrementado: " + Time.timeScale.ToString());
+    }
+    public void ResetTimeScale(float newTimeScale = 1f)
+    {
+        CancelInvoke("GameTimeScale");
+        Time.timeScale = newTimeScale;
+        Debug.Log("Ritmo restablecido: " + Time.timeScale.ToString());
     }
 }
