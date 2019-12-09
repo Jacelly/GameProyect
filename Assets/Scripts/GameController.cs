@@ -26,10 +26,12 @@ public class GameController : MonoBehaviour
 
     private int points = 0;
 
+    private AudioSource musicPlayer;
     // Start is called before the first frame update
     void Start()
     {
         recordText.text = "BEST: " + GetMaxScore().ToString();
+        musicPlayer = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,10 +45,11 @@ public class GameController : MonoBehaviour
             uiIdle.SetActive(false);
             uiScore.SetActive(true);
             player.SendMessage("UpdateState","PlayerRun");
-	    player.SendMessage("UpdateState","PlayerFoxRun");
+	        player.SendMessage("UpdateState","PlayerFoxRun");
             player.SendMessage("DustPlay");
             enemyGenerator.SendMessage("StartGenerator");
             InvokeRepeating("GameTimeScale", scaleTime, scaleTime);
+            musicPlayer.Play();
         }
         //game going
         else if (gameState == GameState.Playing)
