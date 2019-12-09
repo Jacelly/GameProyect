@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
             uiIdle.SetActive(false);
             uiScore.SetActive(true);
             player.SendMessage("UpdateState","PlayerRun");
+	    player.SendMessage("UpdateState","PlayerFoxRun");
             player.SendMessage("DustPlay");
             enemyGenerator.SendMessage("StartGenerator");
             InvokeRepeating("GameTimeScale", scaleTime, scaleTime);
