@@ -66,6 +66,12 @@ public class GameController : MonoBehaviour
             }
 
         }
+	else if (gameState == GameState.Ended)
+        {
+            Parallax();
+
+        }
+
     }
     void Parallax()
     {
