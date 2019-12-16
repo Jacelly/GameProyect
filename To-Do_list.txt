@@ -14,4 +14,9 @@
 14) Partículas al correr. es decir,generar un efecto de levantar tierra al correr.
 15) Marcador de puntos. Mostrar marcador e incrementarlo al saltar enemigos.
 16) Guardar récord con PlayerPrefs. Mostrar el récord y guardarlo en un fichero.
+******************************AVANCES PROPYECTO***********************************
+17)Cambiando la Interfaz del nivel 1,asi como tambien el nuevo personaje.
+18)Se agrego Sonido al juegos, asi como sonido para cuando salta el personaje y cuando muere.
 
+19)Se agrego nuevo enemigo para el nivel 2.
+20)Se agrego nuevo escenario para el nivel dos, colocando plataformas(movilesy estaticas)
