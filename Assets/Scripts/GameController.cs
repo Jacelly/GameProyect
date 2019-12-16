@@ -72,6 +72,11 @@ public class GameController : MonoBehaviour
 
         }
 
+	if ((points) >= 3){
+	    enemyGenerator.SendMessage("CancelGenerator",true);
+	    SceneManager.LoadScene("Level2");
+	}
+
     }
     void Parallax()
     {

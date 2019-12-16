@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b273611c7cae174cac148e8e0a6fd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8569201440885912534, guid: b3164d6740f0cd0459449044318b4f24,
+  enemyPrefab: {fileID: 2549102902458680876, guid: b8d4b08ef142e6f4f9962c8474f38ade,
     type: 3}
   generatorTimer: 1.75
 --- !u!1 &813257846
