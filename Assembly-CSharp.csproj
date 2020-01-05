@@ -63,7 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlatformFalling.cs" />
+    <Compile Include="Assets\Enemy1Controller.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CheckGround.cs" />
     <Compile Include="Assets\Scripts\DrawSceneLine.cs" />
@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\MobilePlatform.cs" />
+    <Compile Include="Assets\Scripts\PlatformFalling.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PLayerControlLv2.cs" />
     <Compile Include="Assets\Scripts\SettingsMenu.cs" />
