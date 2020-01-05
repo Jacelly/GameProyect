@@ -35,4 +35,16 @@ public class Enemy1Controller : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
     }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            float yoffset = 1.1f;
+            if(transform.position.y + yoffset < col.transform.position.y)
+            {
+                Destroy(gameObject);
+            }
+            
+        }
+    }
 }
