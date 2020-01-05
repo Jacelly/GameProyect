@@ -42,7 +42,12 @@ public class Enemy1Controller : MonoBehaviour
             float yoffset = 1.1f;
             if(transform.position.y + yoffset < col.transform.position.y)
             {
+                col.SendMessage("EnemyJump");
                 Destroy(gameObject);
+            }
+            else
+            {
+                col.SendMessage("EnemyKnockBack", transform.position.x);
             }
             
         }
