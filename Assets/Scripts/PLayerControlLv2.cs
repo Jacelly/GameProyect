@@ -91,6 +91,10 @@ public class PLayerControlLv2 : MonoBehaviour
         }
 
     }
+    void OnBecameInvisible()
+    {
+        transform.position = new Vector3(-12.98f, -0.74f, 0);
+    }
     public void EnemyJump()
     {
         jump = true;

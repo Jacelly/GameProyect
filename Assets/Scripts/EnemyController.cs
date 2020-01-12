@@ -10,8 +10,8 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //rb2d = GetComponent<Rigidbody2D>();
-        //rb2d.velocity = Vector2.left * velocity;
+        rb2d = GetComponent<Rigidbody2D>();
+        rb2d.velocity = Vector2.left * velocity;
     }
 
     // Update is called once per frame

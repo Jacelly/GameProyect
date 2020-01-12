@@ -12,24 +12,25 @@ public class CheckGround : MonoBehaviour
         player = GetComponentInParent<PLayerControlLv2>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Ground")
         {
             player.grounded = true;
         }
-        
+        if (collision.gameObject.tag == "Platform")
+        {
+            player.grounded = true;
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
+        {
+            player.grounded = false;
+        }
+        if (collision.gameObject.tag == "Platform")
         {
             player.grounded = false;
         }

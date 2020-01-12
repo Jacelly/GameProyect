@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Falling Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6826643678211445342, guid: 125b1f92df6dfcc41a5842d89470570a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 6826643678211445340, guid: 125b1f92df6dfcc41a5842d89470570a,
         type: 3}
       propertyPath: m_LocalPosition.x
