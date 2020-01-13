@@ -19,7 +19,7 @@ public class PrincessController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collisionInfo){
 	if(collisionInfo.gameObject.tag == "Player"){
 	    Debug.Log("Player Detected!");
-	    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+	    SceneManager.LoadScene("credit");
 	}
     }
 }

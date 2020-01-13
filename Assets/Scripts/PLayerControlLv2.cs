@@ -126,8 +126,13 @@ public class PLayerControlLv2 : MonoBehaviour
     }
     void OnBecameInvisible()
     {
-        SceneManager.LoadScene("Menu");
+        
         //transform.position = new Vector3(-12.98f, -0.74f, 0);
+        if(transform.position.y < -4)
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        
     }
     public void EnemyJump()
     {
@@ -135,7 +140,11 @@ public class PLayerControlLv2 : MonoBehaviour
     }
     public void EnemyKnockBack(float enemyPosX)
     {
-        vida = vida - 1;
+        if (!Muerto)
+        {
+            vida = vida - 1;
+        }
+        
 
         if (vida <= 0)
         {
@@ -178,11 +187,12 @@ public class PLayerControlLv2 : MonoBehaviour
         colliderMuerte.isTrigger = true;
         rb2d.velocity = Vector2.zero;
         yield return new WaitForSeconds(1);
-        //SceneManager.LoadScene("SampleScene");
+        //
 
         //rb2d.isKinematic = false;
         rb2d.velocity = new Vector2(0, -5f);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
+        //SceneManager.LoadScene("SampleScene");
     }
 
 }
