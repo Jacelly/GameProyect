@@ -39,7 +39,7 @@ public class PlatformFalling : MonoBehaviour
     void Respawn()
     {
         transform.position = start;
-        rb2d.isKinematic = false;
+        rb2d.isKinematic = true;
         rb2d.velocity = Vector3.zero;
         pc2d.isTrigger = false;
 
