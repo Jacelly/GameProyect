@@ -18,6 +18,12 @@ public class PLayerControlLv2 : MonoBehaviour
     private bool jump;
     private bool doubleJump;
     private bool movement = true;
+
+    public AudioClip jumpClip1;
+    public AudioClip dieClip1;
+    public AudioClip LifeClip1;
+    private AudioSource audioPlayer1;
+
     //private int vida = 3;
     private bool Muerto = false;
 
@@ -35,11 +41,13 @@ public class PLayerControlLv2 : MonoBehaviour
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
         vida = 3;
+        audioPlayer1 = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         anim.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
         anim.SetBool("Grounded", grounded);
         //anim.SetInteger("Vida", vida);
@@ -66,6 +74,8 @@ public class PLayerControlLv2 : MonoBehaviour
             }
             else if (doubleJump)
             {
+                audioPlayer1.clip = jumpClip1;
+                audioPlayer1.Play();
                 jump = true;
                 doubleJump = false;
             }
@@ -116,6 +126,8 @@ public class PLayerControlLv2 : MonoBehaviour
 
             if (jump)
             {
+                audioPlayer1.clip = jumpClip1;
+                audioPlayer1.Play();
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
                 rb2d.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
                 jump = false;
@@ -143,6 +155,7 @@ public class PLayerControlLv2 : MonoBehaviour
         if (!Muerto)
         {
             vida = vida - 1;
+
         }
         
 
@@ -156,6 +169,7 @@ public class PLayerControlLv2 : MonoBehaviour
             ////SceneManager.LoadScene("SampleScene");
             //rb2d.isKinematic = false;
             //rb2d.velocity = new Vector2(0, 4f);
+ 
         }
 
         else
@@ -163,8 +177,7 @@ public class PLayerControlLv2 : MonoBehaviour
             jump = true;
 
             float side = Mathf.Sign(enemyPosX - transform.position.x);
-            rb2d.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
-
+            rb2d.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);;
             movement = false;
             Invoke("EnableMovement", 0.7f);
             Color color = new Color(255 / 255f, 106 / 255f, 0 / 255f);
@@ -193,6 +206,7 @@ public class PLayerControlLv2 : MonoBehaviour
         rb2d.velocity = new Vector2(0, -5f);
         yield return new WaitForSeconds(0.5f);
         //SceneManager.LoadScene("SampleScene");
+
     }
 
 }

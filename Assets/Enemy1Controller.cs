@@ -8,10 +8,16 @@ public class Enemy1Controller : MonoBehaviour
     public float speed = 1f;
 
     private Rigidbody2D rb2d;
+
+    private AudioSource audioEnemy2;
+    public AudioClip jumpClip2;
+    public AudioClip LifeClip2;
+    public AudioClip dieClip2;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        audioEnemy2 = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,10 +50,13 @@ public class Enemy1Controller : MonoBehaviour
             {
                 col.SendMessage("EnemyJump");
                 Destroy(gameObject);
+
             }
             else
             {
                 col.SendMessage("EnemyKnockBack", transform.position.x);
+               audioEnemy2.clip = dieClip2;
+               audioEnemy2.Play();
             }
             
         }
