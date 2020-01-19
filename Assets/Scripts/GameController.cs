@@ -66,16 +66,21 @@ public class GameController : MonoBehaviour
             }
 
         }
-	else if (gameState == GameState.Ended)
-        {
-            Parallax();
+	    //else if (gameState == GameState.Ended)
+        //{
+        //    if (userAction)
+         //   {
+           //     RestarGame();
+          //  }
 
-        }
+           // Parallax();
 
-	if ((points) >= 3){
-	    enemyGenerator.SendMessage("CancelGenerator",true);
-	    SceneManager.LoadScene("Level2");
-	}
+        //}
+    //CAMBIO DE SCENA
+	//if ((points) >= 3){
+	 //   enemyGenerator.SendMessage("CancelGenerator",true);
+      //   SceneManager.LoadScene("Level2");
+       // }
 
     }
     void Parallax()
@@ -88,7 +93,7 @@ public class GameController : MonoBehaviour
     public void RestarGame()
     {
         ResetTimeScale();
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level2");
     }
     void GameTimeScale()
     {
