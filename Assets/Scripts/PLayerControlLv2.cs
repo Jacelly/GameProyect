@@ -186,6 +186,42 @@ public class PLayerControlLv2 : MonoBehaviour
         }
 
     }
+    public void EagleEnemyKnockBack(float enemyPosX)
+    {
+        if (!Muerto)
+        {
+            vida = vida - 2;
+
+        }
+        
+
+        if (vida <= 0)
+        {
+            Muerto = true;
+            //anim.Play("PlayerLv2_Muerte");
+            //rb2d.isKinematic = true;
+            //colliderMuerte.isTrigger = true;
+            //new WaitForSeconds(1);
+            ////SceneManager.LoadScene("SampleScene");
+            //rb2d.isKinematic = false;
+            //rb2d.velocity = new Vector2(0, 4f);
+ 
+        }
+
+        else
+        {
+            jump = true;
+
+            float side = Mathf.Sign(enemyPosX - transform.position.x);
+            rb2d.AddForce(Vector2.left * side * jumpPower, ForceMode2D.Impulse);
+            movement = false;
+            Invoke("EnableMovement", 0.7f);
+            //Color color = new Color(255 / 255f, 106 / 255f, 0 / 255f);
+            spr.color = Color.red;
+            //spr.color = color;
+        }
+
+    }
 
     void EnableMovement()
     {
