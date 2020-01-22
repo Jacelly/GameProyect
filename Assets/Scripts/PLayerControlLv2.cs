@@ -12,6 +12,7 @@ public class PLayerControlLv2 : MonoBehaviour
     public float jumpPower = 6.5f;
     public CircleCollider2D colliderMuerte;
 
+
     private Rigidbody2D rb2d;
     private Animator anim;
     private SpriteRenderer spr;
@@ -30,7 +31,7 @@ public class PLayerControlLv2 : MonoBehaviour
 
 
     //GameController
-    private static int vida = 3;
+    public static int vida = 3;
     public string lifeString = "Life";
     public Text TextLife;
 
@@ -74,7 +75,7 @@ public class PLayerControlLv2 : MonoBehaviour
             }
             else if (doubleJump)
             {
-                audioPlayer1.clip = jumpClip1;
+                audioPlayer1.clip = dieClip1;
                 audioPlayer1.Play();
                 jump = true;
                 doubleJump = false;
@@ -134,7 +135,6 @@ public class PLayerControlLv2 : MonoBehaviour
             }
         }
 
-
     }
     void OnBecameInvisible()
     {
@@ -142,7 +142,7 @@ public class PLayerControlLv2 : MonoBehaviour
         //transform.position = new Vector3(-12.98f, -0.74f, 0);
         if(transform.position.y < -4)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Level2");
         }
         
     }
@@ -190,7 +190,29 @@ public class PLayerControlLv2 : MonoBehaviour
     {
         if (!Muerto)
         {
-            vida = vida - 2;
+            if (vida > 1)
+            {
+                vida -= 2;
+            }
+
+            else
+            {
+                vida -= 1;
+            }
+
+            if (vida <= 0)
+            {
+                Muerto = true;
+                //anim.Play("PlayerLv2_Muerte");
+                //rb2d.isKinematic = true;
+                //colliderMuerte.isTrigger = true;
+                //new WaitForSeconds(1);
+                ////SceneManager.LoadScene("SampleScene");
+                //rb2d.isKinematic = false;
+                //rb2d.velocity = new Vector2(0, 4f);
+
+            }
+
 
         }
         
@@ -244,5 +266,7 @@ public class PLayerControlLv2 : MonoBehaviour
         //SceneManager.LoadScene("SampleScene");
 
     }
+
+
 
 }
